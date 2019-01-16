@@ -1,0 +1,27 @@
+{
+  "name": "account",
+  "version": "1.0.0",
+  "description": "account service for BigCo, Inc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/api-tool-kit/account.git"
+  },
+  "keywords": [
+    "bigco",
+    "dabga",
+    "apitoolkit",
+    "mamund",
+    "account",
+    "pragprog"
+  ],
+  "author": "Mike Amundsen (@mamund)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/api-tool-kit/account/issues"
+  },
+  "homepage": "https://github.com/api-tool-kit/account#readme"
+}
