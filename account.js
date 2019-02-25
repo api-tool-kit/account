@@ -21,24 +21,34 @@ router.use(function timeLog (req, res, next) {
   next()
 })
 
-// config customer object
-//var props = ['id','name','email','status','dateUpdated','dateCreated'];
+// config account object
 var props = [
   'id',
-  'companyName',
-  'streetAddress',
-  'city',
-  'stateProvince',
-  'postalCode',
-  'country',
-  'telephone',
-  'email',
+  'division',
+  'companyId',
+  'spendingLimit',
+  'discountPercentage',
   'status',
   'dateCreated',
   'dateUpdated'
 ]
-var reqd = ['companyName','email','status'];
+var reqd = ['division','companyId','status'];
 
+/*
+division MUST be one of:
+ - DryGoods
+ - Hardware
+ - Software
+ - Grocery
+ - Pharmacy
+ - Military
+
+ status MUST be one of:
+ - suspended
+ - pending
+ - active
+ - closed
+*/
 /***************************************
  * handle request events
  ***************************************/
