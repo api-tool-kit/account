@@ -6,9 +6,13 @@ The following actions need to be supported:
  * CreateAccount
    * division, companyId, spendingLimit, discountPercentage,status)
  * EditAccount
+   * accountId, division, companyId, spendingLimit, discountPercentage,status)
  * CloseAccount
+   * accountId
  * UpdateAccountLimits
+   * accountId, spendingLimit, discountPercentage
  * SetAccountStatus
+   * accountId, status
 
 ### Data Elements
 The following data properties need to be supported:
