@@ -149,7 +149,7 @@ function processFilter(req,res) {
 function processItem(req,res) {
   return new Promise(function(resolve,reject){
     if(req.params.accountId && req.params.accountId!==null) {
-      var id = req.params.companyId;
+      var id = req.params.accountId;
       resolve(component({name:'account',action:'item',id:id}));
     } 
     else {
