@@ -136,9 +136,9 @@ module.exports = router
 function itemLinks(list) {
   list.forEach(item => {
     item.links = [];
-    item.links[0] = {rel:"read",href:"/company/" + item.id};
-    item.links[1] = {rel:"update",href:"/company/" + item.id};
-    item.links[2] = {rel:"delete",href:"/company/" + item.id};
+    item.links[0] = {rel:"read",href:"/account/" + item.id};
+    item.links[1] = {rel:"update",href:"/account/" + item.id};
+    item.links[2] = {rel:"delete",href:"/account/" + item.id};
 });
   return list;
 }
@@ -146,9 +146,9 @@ function itemLinks(list) {
 // handle collection links
 function collectionLinks(list) {
     list.links = [];
-    list.links[0] = {rel:"list",href:"/company/list"};
-    list.links[1] = {rel:"add",href:"/company/list"};
-    list.links[2] = {rel:"home",href:"/company/"};
+    list.links[0] = {rel:"list",href:"/account/list"};
+    list.links[1] = {rel:"add",href:"/account/list"};
+    list.links[2] = {rel:"home",href:"/account/"};
     console.log(list);
   return list;
 }
