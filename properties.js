@@ -7,7 +7,7 @@
 exports.props = [
   'id',
   'status',
-  'divisionType'
+  'divisionType',
   'companyId',
   'spendingLimit',
   'discountPercentage',
