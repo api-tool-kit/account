@@ -10,7 +10,14 @@ var properties = require('./properties');
  * action handles for company service
  *****************************************/
 
- module.exports.blank = function(req,res) {
+module.exports.list = function(req,res) {
+  return new Promise(function(resolve,reject) {
+    resolve(component({name:'account',action:'list'}));
+  });
+}
+
+
+module.exports.blank = function(req,res) {
   return new Promise(function(resolve,reject) {
     var body = [];
     if(body) {
@@ -45,12 +52,6 @@ module.exports.create = function(req,res) {
     }
   });
 };
-
-module.exports.list = function(req,res) {
-  return new Promise(function(resolve,reject) {
-    resolve(component({name:'activity',action:'list'}));
-  });
-}
 
 module.exports.filter = function(req,res) {
   return new Promise(function(resolve,reject){

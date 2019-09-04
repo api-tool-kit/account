@@ -32,6 +32,11 @@ exports.responseTypes = [
 exports.urlencoded = true;
 exports.allowCORS = "GET POST PUT DELETE PATCH OPTIONS HEAD";
 
+exports.metadata = [
+  {name:"title", value:"BigCo, Inc. Account API"},
+  {name:"author", value:"Mike Amundsen, @mamund"}
+];
+
 exports.pageLinks = [
   {name:"home", href:"/", rel:"home"},
   {name:"list", href:"/list", rel:"collection"},
@@ -39,6 +44,10 @@ exports.pageLinks = [
 ];
 
 exports.itemLinks = [
+  {name:"item","href":"/{:id}"},
+  {name:"edit","href":"/{:id}"},
+  {name:"status", "href":"status/?id={:id}"},
+  {name:"close", "href":"close/?id={:id}"}
 ];
 
 exports.pageForms = [
@@ -66,6 +75,7 @@ exports.itemForms - [
 // ****************************************
 exports.templates = [
   { 
+    comment : "simple array of JSON objects",
     format : "application/json", 
     view : 
     `
@@ -89,12 +99,28 @@ exports.templates = [
     `
   },
   { 
+    comment : "custom format that contains link metadata",
     format : "application/links+json", 
     view : 
     `
       { 
           "<%=type%>" : 
           { 
+            "metadata" : 
+            [
+              <%var z=0;%>
+              <%metadata.forEach(function(data){%>
+                <%if(z!==0){%>,<%}%>
+                {
+                  <%var w=0;%>
+                  <%for(var p in data){%>
+                    <%if(w!==0){%>,<%}%>"<%=p%>" : "<%=data[p]%>"
+                    <%w=1;%>
+                  <%}%>  
+                }
+                <%z=1;%>
+              <%});%>
+            ],
             "links" : 
             [
               <%var z=0;%>
@@ -120,11 +146,19 @@ exports.templates = [
                   <%for(var p in item){%>
                     <%if(p==="id"){%>
                     "links" : [
-                      {"name" : "item", "href" : "/<%=item[p]%>"},
-                      {"name" : "edit", "href" : "/<%=item[p]%>"},
-                      {"name" : "status", "href" : "/<%=item[p]%>"},
-                      {"name" : "close", "href" : "/<%=item[p]%>"}
-                    ]
+                      <%var q=0;%>
+                      <%iLinks.forEach(function(slink){%>
+                        <%if(q!==0){%>,<%}%>
+                        {
+                          <%var r=0;%>
+                          <%for(var s in slink){%>
+                            <%if(r!==0){%>,<%}%>"<%=s%>" : "<%=slink[s]%>"
+                            <%r=1;%>
+                          <%}%>
+                        }
+                        <%q=1;%>
+                      <%});%>  
+                    ],
                     <%y=1;%><%}%>
                     <%if(y!==0){%>,<%}%>"<%=p%>" : "<%=item[p]%>"
                     <%y=1;%>
@@ -138,6 +172,7 @@ exports.templates = [
     `
   },
   { 
+    comment : "custom format that contains links and forms metadata",
     format : "application/forms+json", 
     view : 
     `

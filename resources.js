@@ -23,6 +23,7 @@ representor.pageLinks = properties.pageLinks||[];
 representor.itemLinks = properties.itemLinks||[];
 representor.pageForms = properties.pageForms||[];
 representor.itemForms = properties.itemForms||[];
+representor.metadata = properties.metadata||[];
 
 var object = "onboarding";
 
@@ -45,17 +46,17 @@ router.use(function emitCORS (req, res, next) {
 // ********************************************
 // landing/home page
 router.get('/',function(req,res){
-  utils.handler(req,res,actions.blank, 'home', representor) 
+  utils.handler(req, res, actions.blank, 'home', representor) 
 });
 
 // list of onboarding records
 router.get('/list',function(req,res){
-  utils.handler(req,res,actions.blank, 'list', representor) 
+  utils.handler(req, res, actions.list, 'list', representor) 
 });
 
 // single onboarding record
 router.get('/:onboardingId',function(req,res){
-  utils.handler(req,res,actions.blank, 'item', representor) 
+  utils.handler(req, res, actions.blank, 'item', representor) 
 });
 
 // publish the capability routes
