@@ -1,6 +1,6 @@
 /*****************************************
 // bigco, inc
-// company resources 
+// account resources 
 // 2020-02-01 : mamund
  *****************************************/
 
@@ -41,7 +41,7 @@ var metadata = [
 
 
 // ***********************************************************
-// public resources for the cokmpany service
+// public resources for the account service
 // ***********************************************************
 
 // home resource

@@ -157,7 +157,7 @@ module.exports.status = function(req,res) {
 module.exports.remove = function(req,res) {
   return new Promise(function(resolve,reject){
     if(req.params.accountId && req.params.accountId!==null) {
-      var id = req.params.companyId;
+      var id = req.params.accountId;
       resolve(component(
         {name:'account',action:'delete', id:id}));
     }

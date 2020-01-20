@@ -1,5 +1,5 @@
 /*****************************************
-// bigco, inc company
+// bigco, inc account
 // transitions
 // 2020-02-01 : mamund
  *****************************************/
@@ -11,7 +11,7 @@
        id:"self",
        name:"self",
        href:"{fullurl}",
-       rel: "self colllection company",
+       rel: "self colllection account",
        tags: "collection account self home list item",
        title: "Self",
        method: "GET",
@@ -42,7 +42,7 @@
        name:"filter",
        href:"{fullhost}/filter/",
        rel:"collection account filter",
-       tags:"collection company filter list item",
+       tags:"collection account filter list item",
        title:"Search",
        method:"GET",
        properties:[
