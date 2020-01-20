@@ -9,7 +9,7 @@ var app = express();
 var cors = require('cors');
 
 var resources = require('./resources');
-var port = process.env.PORT || 8484;
+var port = process.env.PORT || 8282;
 
 // support calls from JS in browser
 app.use(cors());

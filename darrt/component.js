@@ -32,6 +32,7 @@ function main(args) {
   item = args.item||{};
   reqd = args.reqd||[];
   enums = args.enums||[];
+  defs = args.defs||[];
  
   // confirm existence of object storage
   storage({action:'create',object:elm});
@@ -58,7 +59,7 @@ function main(args) {
       rtn = utils.cleanList(storage({object:elm, action:'filter', filter:filter}));
       break
     case 'add':
-      rtn = addEntry(elm, item, props, reqd, enums);
+      rtn = addEntry(elm, item, props, reqd, enums, defs);
       break;
     case 'update':
       rtn = updateEntry(elm, id, item, props, reqd, enums);
@@ -83,7 +84,7 @@ function main(args) {
   });
 }
 
-function addEntry(elm, entry, props, reqd, enums) {
+function addEntry(elm, entry, props, reqd, enums, defs) {
   var rtn, item, error, id;
  
   item = {}
@@ -93,6 +94,13 @@ function addEntry(elm, entry, props, reqd, enums) {
     }
     else {
       id = entry[props[i]];
+    }
+  }
+  
+  // handle default values
+  for(i=0,x=defs.length;i<x;i++) {
+    if(item[defs[i].name]==="") {
+      item[defs[i].name] = defs[i].value;
     }
   }
   

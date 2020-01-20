@@ -18,11 +18,17 @@ exports.props = [
 ];
 
 // required properties
-exports.reqd = ['id','companyId','division','status'];
+exports.reqd = ['id','companyId','division'];
 
 // enumerated properties
 exports.enums = [
   {status:['pending','active','suspended','closed']},
   {division:['DryGoods','Hardware','Software','Grocery','Pharmacy','Military']}
 ];
+
+exports.defs = [
+  {name:"spendingLimit", value:"10000"},
+  {name:"discountPercentage", value:"10"},
+  {name:"status",value:"active"}
+]
 
