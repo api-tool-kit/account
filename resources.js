@@ -34,7 +34,7 @@ router.use(function timeLog (req, res, next) {
 
 // shared metadata for this service
 var metadata = [
-  {name: "title", value: "BigCo Company Records"},
+  {name: "title", value: "BigCo Account Records"},
   {name: "author", value: "Mike Amundsen"},
   {name: "release", value: "1.0.0"} 
 ];
@@ -43,6 +43,8 @@ var metadata = [
 // ***********************************************************
 // public resources for the cokmpany service
 // ***********************************************************
+
+// home resource
 router.get('/',function(req,res){
   utils.handler(req,res,actions.home,"home", 
     {
@@ -54,8 +56,9 @@ router.get('/',function(req,res){
   )
 });
 
+// createAccount
 router.post('/', function(req,res){
-  utils.handler(req,res,actions.create,"company", 
+  utils.handler(req,res,actions.create,"account", 
     {
       metadata:metadata,
       templates:templates,
@@ -65,8 +68,9 @@ router.post('/', function(req,res){
   )
 });
 
+// list accounts
 router.get('/list/',function(req,res){
-  utils.handler(req,res,actions.list,"company", 
+  utils.handler(req,res,actions.list,"account", 
     {
       metadata:metadata,
       templates:templates,
@@ -76,8 +80,9 @@ router.get('/list/',function(req,res){
   )
 });
 
+// filter accounts
 router.get('/filter/', function(req,res){
-  utils.handler(req,res,actions.filter,"company", 
+  utils.handler(req,res,actions.filter,"account", 
     {
       metadata:metadata,
       templates:templates,
@@ -87,8 +92,9 @@ router.get('/filter/', function(req,res){
   )
 });
 
-router.get('/:companyId', function(req,res){
-  utils.handler(req,res,actions.read,"company", 
+// read account
+router.get('/:accountId', function(req,res){
+  utils.handler(req,res,actions.read,"account", 
     {
       metadata:metadata,
       templates:templates,
@@ -98,8 +104,9 @@ router.get('/:companyId', function(req,res){
   )
 });
 
-router.put('/:companyId', function(req,res){
-  utils.handler(req,res,actions.update,"company", 
+// update account
+router.put('/:accountId', function(req,res){
+  utils.handler(req,res,actions.update,"account", 
     {
       metadata:metadata,
       templates:templates,
@@ -109,8 +116,9 @@ router.put('/:companyId', function(req,res){
   )
 });
 
-router.delete('/:companyId', function(req,res){
-  utils.handler(req,res,actions.remove,"company", 
+// modify status of account
+router.patch('/status/:accountId', function(req,res){
+  utils.handler(req,res,actions.status,"account", 
     {
       metadata:metadata,
       templates:templates,
@@ -120,8 +128,9 @@ router.delete('/:companyId', function(req,res){
   )
 });
 
-router.patch('/status/:companyId', function(req,res){
-  utils.handler(req,res,actions.status,"company", 
+// modify limits of account
+router.patch('/limits/:accountId', function(req,res){
+  utils.handler(req,res,actions.status,"account", 
     {
       metadata:metadata,
       templates:templates,
@@ -130,6 +139,20 @@ router.patch('/status/:companyId', function(req,res){
     }
   )
 });
+
+// remove account
+/*
+router.delete('/:accountId', function(req,res){
+  utils.handler(req,res,actions.remove,"account", 
+    {
+      metadata:metadata,
+      templates:templates,
+      forms:forms, 
+      filter:"item"
+    }
+  )
+});
+*/
 
 // publish the capability routes
 module.exports = router

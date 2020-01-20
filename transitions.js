@@ -12,7 +12,7 @@
        name:"self",
        href:"{fullurl}",
        rel: "self colllection company",
-       tags: "collection company self home list item",
+       tags: "collection account self home list item",
        title: "Self",
        method: "GET",
        properties:[]
@@ -21,8 +21,8 @@
        id:"home",
        name:"home",
        href:"{fullhost}/",
-       rel: "collection company",
-       tags: "collection company home list item",
+       rel: "collection account",
+       tags: "collection account home list item",
        title: "Home",
        method: "GET",
        properties:[]
@@ -31,8 +31,8 @@
        id:"list",
        name:"list",
        href:"{fullhost}/list/",
-       rel:"collection company",
-       tags:"collection company home list item",
+       rel:"collection account",
+       tags:"collection account home list item",
        title:"List",
        method:"GET",
        properties:[]
@@ -41,7 +41,7 @@
        id:"filter",
        name:"filter",
        href:"{fullhost}/filter/",
-       rel:"collection company filter",
+       rel:"collection account filter",
        tags:"collection company filter list item",
        title:"Search",
        method:"GET",
@@ -53,23 +53,19 @@
        ]
      },
      {
-       id: "createCompany",
+       id: "createAccount",
        name: "create",
        href: "{fullhost}/",
-       rel: "create-form company",
-       tags: "collection company list",
-       title: "Create Company",
+       rel: "create-form account",
+       tags: "collection account list",
+       title: "Create Account",
        method: "POST",
        properties: [
         {name:"id",value:"{makeid}"},
-        {name:"companyName",value:""},
-        {name:"streetAddress",value:""},
-        {name:"city",value:""},
-        {name:"stateProvince",value:""},
-        {name:"postalCode",value:""},
-        {name:"country",value:""},
-        {name:"telephone",value:""},
-        {name:"email",value:""},
+        {name:"companyId",value:""},
+        {name:"division",value:""},
+        {name:"spendingLimit",value:"10000"},
+        {name:"discountPercentage",value:"10"},
         {name:"status",value:"pending"}
        ]
      }
@@ -79,7 +75,7 @@
        id:"read_{id}",
        name: "read",
        href: "{fullhost}/{id}",
-       rel: "item company read",
+       rel: "item account read",
        title: "Read",
        method: "GET",
        properties: []
@@ -88,30 +84,25 @@
        id:"update_{id}",
        name:"update",
        href:"{fullhost}/{id}",
-       rel: "item edit-form company",
-       tags: "company list item",
+       rel: "item edit-form account",
+       tags: "account list item",
        title: "Edit",
        method: "PUT",
        properties: [
          {name:"id",value:"{id}"},
-         {name:"companyName",value:"{companyName}"},
-         {name:"email",value:"{email}"},
+         {name:"companyId",value:"{companyId}"},
          {name:"status",value:"{status}"},
-         {name:"streetAddress",value:"{streetAddress}"},
-         {name:"city",value:"{city}"},
-         {name:"stateProvince",value:"{stateProvince}"},
-         {name:"postalCode",value:"{postalCode}"},
-         {name:"country",value:"{country}"},
-         {name:"telephone",value:"{telephone}"},
-         {name:"email",value:"{email}"}
+         {name:"division",value:"{division}"},
+         {name:"spendingLimit",value:"{spendingLimit}"},
+         {name:"discountPercentage",value:"{discountPercentage}"},
        ]
      },
      {
        id:"status_{id}",
        name:"status",
        href:"{fullhost}/status/{id}",
-       rel: "item company status",
-       tags: "company item list status",
+       rel: "item account status",
+       tags: "account item list status",
        title: "Status",
        method: "PATCH",
        properties: [
@@ -119,13 +110,17 @@
        ]
      },
      {
-       id:"remove_{id}",
-       name: "remove",
-       href: "{fullhost}/{id}",
-       rel: "item company remove",
-       title: "Remove",
-       method: "DELETE",
-       properties: []
+       id:"limits_{id}",
+       name:"status",
+       href:"{fullhost}/status/{id}",
+       rel: "item account limits",
+       tags: "account item list limits",
+       title: "Status",
+       method: "PATCH",
+       properties: [
+         {name:"spendingLimit",value:"{spendingLimit}"},
+         {name:"discountPercentage",value:"{discountPercentage}"}
+       ]
      }
    ]
  }

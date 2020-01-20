@@ -1,6 +1,6 @@
 /*****************************************
 // bigco, inc 
-// company action elements
+// account action elements
 // 2020-02-01 : mamund
  *****************************************/
 
@@ -8,9 +8,9 @@ var component = require('./darrt/component');
 var data = require('./data');
 
 /***************************************** 
-// actions for the company service
+// actions for the account service
 // home, create, list, filter, 
-// read, update, status, remove
+// read, update, status, limits, remove
  *****************************************/
 
 module.exports.home = function(req,res) {
@@ -22,8 +22,8 @@ module.exports.home = function(req,res) {
     if("application/json text-csv".indexOf(ctype)!==-1) {
       body = {
         id:"list",
-        name:"company",
-        rel:"collection company",
+        name:"account",
+        rel:"collection account",
         href: "{fullhost}/list/"
       };
     }
@@ -44,7 +44,7 @@ module.exports.create = function(req,res) {
      resolve(
       component(
         { 
-          name:'company',
+          name:'account',
           action:'add',
           item:body,
           props:data.props,
@@ -62,14 +62,14 @@ module.exports.create = function(req,res) {
 
 module.exports.list = function(req,res) {
   return new Promise(function(resolve,reject) {
-    resolve(component({name:'company',action:'list'}));
+    resolve(component({name:'account',action:'list'}));
   });
 }
 
 module.exports.filter = function(req,res) {
   return new Promise(function(resolve,reject){
     if(req.query && req.query.length!==0) {
-      resolve(component({name:'company',action:'filter',filter:req.query}));
+      resolve(component({name:'account',action:'filter',filter:req.query}));
     }
     else {
       reject({error:"invalid query string"});
@@ -79,9 +79,9 @@ module.exports.filter = function(req,res) {
 
 module.exports.read = function(req,res) {
   return new Promise(function(resolve,reject){
-    if(req.params.companyId && req.params.companyId!==null) {
+    if(req.params.accountId && req.params.accountId!==null) {
       var id = req.params.companyId;
-      resolve(component({name:'company',action:'item',id:id}));
+      resolve(component({name:'account',action:'item',id:id}));
     } 
     else {
       reject({error:"missing id"});
@@ -92,11 +92,11 @@ module.exports.read = function(req,res) {
 module.exports.update = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.companyId||null;
+    id = req.params.accountId||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
-         {name:'company',
+         {name:'account',
           action:'update',
           id:id,
           item:body,
@@ -110,14 +110,14 @@ module.exports.update = function(req,res) {
   });
 }
 
-module.exports.status = function(req,res) {
+module.exports.limits = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.companyId||null;
+    id = req.params.accountId||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
-         {name:'company',
+         {name:'account',
           action:'update',
           id:id,
           item:body,
@@ -131,16 +131,39 @@ module.exports.status = function(req,res) {
   });
 }
 
+module.exports.status = function(req,res) {
+  var id,body;
+  return new Promise(function(resolve,reject){
+    id = req.params.accountId||null;
+    body = req.body||null;
+    if(id!==null && body!==null) {
+       resolve(component(
+         {name:'account',
+          action:'update',
+          id:id,
+          item:body,
+          props:data.props,
+          reqd:data.data,
+          enums:data.enums}));
+     }
+     else {
+       reject({error:"missing id and/or body"});
+     }
+  });
+}
+
+/*
 module.exports.remove = function(req,res) {
   return new Promise(function(resolve,reject){
-    if(req.params.companyId && req.params.companyId!==null) {
+    if(req.params.accountId && req.params.accountId!==null) {
       var id = req.params.companyId;
       resolve(component(
-        {name:'company',action:'delete', id:id}));
+        {name:'account',action:'delete', id:id}));
     }
     else {
       reject({error:"invalid id"});
     }
   });
 }
+*/
 
