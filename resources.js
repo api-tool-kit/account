@@ -93,7 +93,7 @@ router.get('/filter/', function(req,res){
 });
 
 // read account
-router.get('/:accountId', function(req,res){
+router.get('/:id', function(req,res){
   utils.handler(req,res,actions.read,"account", 
     {
       metadata:metadata,
@@ -105,7 +105,7 @@ router.get('/:accountId', function(req,res){
 });
 
 // update account
-router.put('/:accountId', function(req,res){
+router.put('/:id', function(req,res){
   utils.handler(req,res,actions.update,"account", 
     {
       metadata:metadata,
@@ -117,7 +117,7 @@ router.put('/:accountId', function(req,res){
 });
 
 // modify status of account
-router.patch('/status/:accountId', function(req,res){
+router.patch('/status/:id', function(req,res){
   utils.handler(req,res,actions.status,"account", 
     {
       metadata:metadata,
@@ -129,7 +129,7 @@ router.patch('/status/:accountId', function(req,res){
 });
 
 // modify limits of account
-router.patch('/limits/:accountId', function(req,res){
+router.patch('/limits/:id', function(req,res){
   utils.handler(req,res,actions.status,"account", 
     {
       metadata:metadata,
@@ -142,7 +142,7 @@ router.patch('/limits/:accountId', function(req,res){
 
 // remove account
 /*
-router.delete('/:accountId', function(req,res){
+router.delete('/:id', function(req,res){
   utils.handler(req,res,actions.remove,"account", 
     {
       metadata:metadata,

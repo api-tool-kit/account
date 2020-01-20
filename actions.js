@@ -80,8 +80,8 @@ module.exports.filter = function(req,res) {
 
 module.exports.read = function(req,res) {
   return new Promise(function(resolve,reject){
-    if(req.params.accountId && req.params.accountId!==null) {
-      var id = req.params.accountId;
+    if(req.params.id && req.params.id!==null) {
+      var id = req.params.id;
       resolve(component({name:'account',action:'item',id:id}));
     } 
     else {
@@ -93,7 +93,7 @@ module.exports.read = function(req,res) {
 module.exports.update = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.accountId||null;
+    id = req.params.id||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
@@ -114,7 +114,7 @@ module.exports.update = function(req,res) {
 module.exports.limits = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.accountId||null;
+    id = req.params.id||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
@@ -135,7 +135,7 @@ module.exports.limits = function(req,res) {
 module.exports.status = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.accountId||null;
+    id = req.params.id||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
@@ -156,8 +156,8 @@ module.exports.status = function(req,res) {
 /*
 module.exports.remove = function(req,res) {
   return new Promise(function(resolve,reject){
-    if(req.params.accountId && req.params.accountId!==null) {
-      var id = req.params.accountId;
+    if(req.params.id && req.params.id!==null) {
+      var id = req.params.id;
       resolve(component(
         {name:'account',action:'delete', id:id}));
     }
