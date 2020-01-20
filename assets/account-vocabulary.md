@@ -4,9 +4,9 @@
 The following actions need to be supported:
 
  * CreateAccount
-   * division, companyId, spendingLimit, discountPercentage,status)
+   * division, companyId, spendingLimit, discountPercentage,status
  * EditAccount
-   * accountId, division, companyId, spendingLimit, discountPercentage,status)
+   * accountId, division, companyId, spendingLimit, discountPercentage,status
  * CloseAccount
    * accountId
  * UpdateAccountLimits
