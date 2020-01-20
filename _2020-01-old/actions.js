@@ -1,33 +1,25 @@
 /*****************************************
-// bigco, inc 
-// company action elements
-// 2020-02-01 : mamund
+ * account capabilities for BigCo, Inc.
+ * 2019-01 mamund
  *****************************************/
 
-var component = require('./darrt/component');
-var data = require('./data');
+var component = require('./dorr-component');
+var properties = require('./properties');
 
-/***************************************** 
-// actions for the company service
-// home, create, list, filter, 
-// read, update, status, remove
+/*****************************************
+ * action handles for company service
  *****************************************/
 
-module.exports.home = function(req,res) {
+module.exports.list = function(req,res) {
   return new Promise(function(resolve,reject) {
-    var body = []; 
-    
-    // hack to handle empty root for non-link types
-    ctype = req.get("Accept")||"";
-    if("application/json text-csv".indexOf(ctype)!==-1) {
-      body = {
-        id:"list",
-        name:"company",
-        rel:"collection company",
-        href: "{fullhost}/list/"
-      };
-    }
-    
+    resolve(component({name:'account',action:'list'}));
+  });
+}
+
+
+module.exports.blank = function(req,res) {
+  return new Promise(function(resolve,reject) {
+    var body = [];
     if(body) {
       resolve(body);
     }
@@ -37,6 +29,7 @@ module.exports.home = function(req,res) {
   });
 }
 
+/**************************
 module.exports.create = function(req,res) {
   return new Promise(function(resolve,reject) {
     if(req.body) {
@@ -44,12 +37,12 @@ module.exports.create = function(req,res) {
      resolve(
       component(
         { 
-          name:'company',
+          name:'activity',
           action:'add',
           item:body,
-          props:data.props,
-          reqd:data.reqd, 
-          enums:data.enums
+          props:properties.props,
+          reqd:properties.reqd, 
+          enums:properties.enums
         }
        )
      );
@@ -60,16 +53,10 @@ module.exports.create = function(req,res) {
   });
 };
 
-module.exports.list = function(req,res) {
-  return new Promise(function(resolve,reject) {
-    resolve(component({name:'company',action:'list'}));
-  });
-}
-
 module.exports.filter = function(req,res) {
   return new Promise(function(resolve,reject){
     if(req.query && req.query.length!==0) {
-      resolve(component({name:'company',action:'filter',filter:req.query}));
+      resolve(component({name:'activity',action:'filter',filter:req.query}));
     }
     else {
       reject({error:"invalid query string"});
@@ -79,9 +66,9 @@ module.exports.filter = function(req,res) {
 
 module.exports.read = function(req,res) {
   return new Promise(function(resolve,reject){
-    if(req.params.companyId && req.params.companyId!==null) {
-      var id = req.params.companyId;
-      resolve(component({name:'company',action:'item',id:id}));
+    if(req.params.activityId && req.params.activityId!==null) {
+      var id = req.params.activityId;
+      resolve(component({name:'activity',action:'item',id:id}));
     } 
     else {
       reject({error:"missing id"});
@@ -92,17 +79,17 @@ module.exports.read = function(req,res) {
 module.exports.update = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.companyId||null;
+    id = req.params.activityId||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
-         {name:'company',
+         {name:'activity',
           action:'update',
           id:id,
           item:body,
-          props:data.props,
-          reqd:data.reqd,
-          enums:data.enums}));
+          props:properties.props,
+          reqd:properties.reqd,
+          enums:properties.enums}));
      }
      else {
        reject({error:"missing id and/or body"});
@@ -113,17 +100,17 @@ module.exports.update = function(req,res) {
 module.exports.status = function(req,res) {
   var id,body;
   return new Promise(function(resolve,reject){
-    id = req.params.companyId||null;
+    id = req.params.activityId||null;
     body = req.body||null;
     if(id!==null && body!==null) {
        resolve(component(
-         {name:'company',
+         {name:'activity',
           action:'update',
           id:id,
           item:body,
-          props:data.props,
-          reqd:data.data,
-          enums:data.enums}));
+          props:properties.props,
+          reqd:properties.reqd,
+          enums:properties.enums}));
      }
      else {
        reject({error:"missing id and/or body"});
@@ -131,16 +118,25 @@ module.exports.status = function(req,res) {
   });
 }
 
-module.exports.remove = function(req,res) {
+module.exports.close = function(req,res) {
+  var id,body;
   return new Promise(function(resolve,reject){
-    if(req.params.companyId && req.params.companyId!==null) {
-      var id = req.params.companyId;
-      resolve(component(
-        {name:'company',action:'delete', id:id}));
-    }
-    else {
-      reject({error:"invalid id"});
-    }
+    id = req.params.activityId||null;
+    body = req.body||null;
+    if(id!==null && body!==null) {
+       resolve(component(
+         {name:'activity',
+          action:'update',
+          id:id,
+          item:body,
+          props:properties.props,
+          reqd:properties.reqd,
+          enums:properties.enums}));
+     }
+     else {
+       reject({error:"missing id and/or body"});
+     }
   });
 }
+*****************************************/
 
