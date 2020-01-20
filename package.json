@@ -1,7 +1,7 @@
 {
-  "name": "company",
+  "name": "account",
   "version": "1.0.0",
-  "description": "company service for BigCo, Inc.",
+  "description": "Account service for BigCo, Inc.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/api-tool-kit/company.git"
+    "url": "git+https://github.com/api-tool-kit/account.git"
   },
   "keywords": [
     "mamund",
@@ -21,9 +21,9 @@
   "author": "Mike Amundsen (@mamund)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/api-tool-kit/company/issues"
+    "url": "https://github.com/api-tool-kit/account/issues"
   },
-  "homepage": "https://github.com/api-tool-kit/company#readme",
+  "homepage": "https://github.com/api-tool-kit/account#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
