@@ -33,7 +33,7 @@ function main(args) {
   var id = args.id||null;
   var item = args.item||{};
   var fields = args.fields||"";
-  
+
   switch (action) {
     case 'create':
       rtn = createObject(object);
@@ -104,7 +104,7 @@ function getList(object, filter, fields) {
   for(i=0,x=coll.length;i<x;i++) {
     coll[i] = applyFields(coll[i],fields);
   }
-  
+
   return coll;
 }
 
@@ -119,7 +119,7 @@ function getItem(object, id, fields) {
   }
 
   rtn = applyFields(rtn, fields);
-  
+
   return rtn;
 }
 
@@ -129,7 +129,7 @@ function getItem(object, id, fields) {
 function applyFields(item,fields) {
   var rtn = {};
   
-  if(fields.length!==0) {
+  if(fields && fields.length!==0) {
     for(var i in item) {
       if(fields.indexOf(i)!==-1) {
         rtn[i] = item[i];
@@ -181,7 +181,7 @@ function addItem(object, item, id) {
       fs.writeFileSync(folder + object + '/' + item.id, JSON.stringify(item));
       rtn = getItem(object, item.id);
     } catch (ex) {
-      rtn = exeption("SimpleStorage: ["+object+"]", ex.message, 400);
+      rtn = exception("SimpleStorage: ["+object+"]", ex.message, 400);
     }
   }
   return rtn;
@@ -241,8 +241,8 @@ function exception(name, message, code, type, url) {
 
   rtn.type = (type||"error");
   rtn.title = (name||"Error");
-  rtn.detail = (message||rtn.name);
-  rtn.status = (code||400);
+  rtn.detail = (message||name);
+  rtn.status = (code||"400");
   if(url) {rtn.instance = url};
 
   return rtn;

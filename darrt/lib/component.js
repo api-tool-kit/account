@@ -34,7 +34,7 @@ function main(args) {
   enums = args.enums||[];
   defs = args.defs||[];
   fields = args.fields||"";
- 
+  
   // confirm existence of object storage
   storage({action:'create',object:elm});
 
@@ -85,7 +85,7 @@ function main(args) {
   });
 }
 
-function addEntry(elm, entry, props, reqd, enums, defs) {
+function addEntry(elm, entry, props, reqd, enums) {
   var rtn, item, error, id;
  
   item = {}
@@ -95,13 +95,6 @@ function addEntry(elm, entry, props, reqd, enums, defs) {
     }
     else {
       id = entry[props[i]];
-    }
-  }
-  
-  // handle default values
-  for(i=0,x=defs.length;i<x;i++) {
-    if(item[defs[i].name]==="") {
-      item[defs[i].name] = defs[i].value;
     }
   }
   
