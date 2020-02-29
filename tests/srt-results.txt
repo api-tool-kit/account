@@ -1,0 +1,226 @@
+http://localhost:8282/
+      { 
+          "home" : 
+          [
+              {
+                  "id" : "list"
+                  ,"name" : "account"
+                  ,"rel" : "collection account"
+                  ,"href" : "http://localhost:8282/list/"
+              }
+          ]
+       }
+    http://localhost:8282/list/
+      { 
+          "account" : 
+          [
+              {
+                  "id" : "1c0x0mzp83t"
+                  ,"division" : "DryGoods"
+                  ,"companyId" : "1or2ab05imf"
+                  ,"spendingLimit" : ""
+                  ,"discountPercentage" : ""
+                  ,"status" : "active"
+                  ,"dateCreated" : "2019-02-25T08:12:00.579Z"
+                  ,"dateUpdated" : "2019-02-25T08:12:00.579Z"
+              }
+              ,
+              {
+                  "id" : "1yswvm4n0q"
+                  ,"companyId" : "21r1aeuj87e"
+                  ,"division" : "DryGoods"
+                  ,"spendingLimit" : "15000"
+                  ,"discountPercentage" : "15"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2019-02-25T08:13:16.099Z"
+                  ,"dateUpdated" : "2020-01-20T02:24:34.476Z"
+              }
+              ,
+              {
+                  "id" : "2k8ue502vuk"
+                  ,"companyId" : "1or2ab05imf"
+                  ,"division" : "DryGoods"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-01-20T00:56:00.478Z"
+                  ,"dateUpdated" : "2020-01-20T00:56:00.478Z"
+              }
+              ,
+              {
+                  "id" : "3kzbw0ze078"
+                  ,"division" : "Military"
+                  ,"companyId" : "21r1aeuj87e"
+                  ,"spendingLimit" : ""
+                  ,"discountPercentage" : ""
+                  ,"status" : "active"
+                  ,"dateCreated" : "2019-02-25T08:12:51.530Z"
+                  ,"dateUpdated" : "2019-02-25T08:12:51.530Z"
+              }
+              ,
+              {
+                  "id" : "6x7hpmtxbss"
+                  ,"division" : "Pharmacy"
+                  ,"companyId" : "1or2ab05imf"
+                  ,"spendingLimit" : ""
+                  ,"discountPercentage" : ""
+                  ,"status" : "active"
+                  ,"dateCreated" : "2019-02-25T08:12:36.747Z"
+                  ,"dateUpdated" : "2019-02-25T08:12:36.747Z"
+              }
+              ,
+              {
+                  "id" : "bm4lr8c9nds"
+                  ,"companyId" : "1or2ab05imf"
+                  ,"division" : "DryGoods"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-01-20T00:57:00.045Z"
+                  ,"dateUpdated" : "2020-01-20T00:57:00.045Z"
+              }
+              ,
+              {
+                  "id" : "q1w2e3r4"
+                  ,"companyId" : "w2e3r4t5"
+                  ,"division" : "Military"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-02-29T02:34:21.120Z"
+                  ,"dateUpdated" : "2020-02-29T03:22:35.586Z"
+              }
+          ]
+       }
+    http://localhost:8282/filter?status=active
+      { 
+          "account" : 
+          [
+              {
+                  "id" : "1c0x0mzp83t"
+                  ,"division" : "DryGoods"
+                  ,"companyId" : "1or2ab05imf"
+                  ,"spendingLimit" : ""
+                  ,"discountPercentage" : ""
+                  ,"status" : "active"
+                  ,"dateCreated" : "2019-02-25T08:12:00.579Z"
+                  ,"dateUpdated" : "2019-02-25T08:12:00.579Z"
+              }
+              ,
+              {
+                  "id" : "1yswvm4n0q"
+                  ,"companyId" : "21r1aeuj87e"
+                  ,"division" : "DryGoods"
+                  ,"spendingLimit" : "15000"
+                  ,"discountPercentage" : "15"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2019-02-25T08:13:16.099Z"
+                  ,"dateUpdated" : "2020-01-20T02:24:34.476Z"
+              }
+              ,
+              {
+                  "id" : "2k8ue502vuk"
+                  ,"companyId" : "1or2ab05imf"
+                  ,"division" : "DryGoods"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-01-20T00:56:00.478Z"
+                  ,"dateUpdated" : "2020-01-20T00:56:00.478Z"
+              }
+              ,
+              {
+                  "id" : "3kzbw0ze078"
+                  ,"division" : "Military"
+                  ,"companyId" : "21r1aeuj87e"
+                  ,"spendingLimit" : ""
+                  ,"discountPercentage" : ""
+                  ,"status" : "active"
+                  ,"dateCreated" : "2019-02-25T08:12:51.530Z"
+                  ,"dateUpdated" : "2019-02-25T08:12:51.530Z"
+              }
+              ,
+              {
+                  "id" : "6x7hpmtxbss"
+                  ,"division" : "Pharmacy"
+                  ,"companyId" : "1or2ab05imf"
+                  ,"spendingLimit" : ""
+                  ,"discountPercentage" : ""
+                  ,"status" : "active"
+                  ,"dateCreated" : "2019-02-25T08:12:36.747Z"
+                  ,"dateUpdated" : "2019-02-25T08:12:36.747Z"
+              }
+              ,
+              {
+                  "id" : "bm4lr8c9nds"
+                  ,"companyId" : "1or2ab05imf"
+                  ,"division" : "DryGoods"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-01-20T00:57:00.045Z"
+                  ,"dateUpdated" : "2020-01-20T00:57:00.045Z"
+              }
+              ,
+              {
+                  "id" : "q1w2e3r4"
+                  ,"companyId" : "w2e3r4t5"
+                  ,"division" : "Military"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-02-29T02:34:21.120Z"
+                  ,"dateUpdated" : "2020-02-29T03:22:35.586Z"
+              }
+          ]
+       }
+    http://localhost:8282/ -X POST -d id=q1w2e3r4&status=pending&companyId=q1w2e3r4&division=Military
+http://localhost:8282/q1w2e3r4 -X PUT -d companyId=w2e3r4t5
+      { 
+          "account" : 
+          [
+              {
+                  "id" : "q1w2e3r4"
+                  ,"companyId" : "w2e3r4t5"
+                  ,"division" : "Military"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-02-29T02:34:21.120Z"
+                  ,"dateUpdated" : "2020-02-29T03:23:12.246Z"
+              }
+          ]
+       }
+    http://localhost:8282/limits/q1w2e3r4 -X PATCH -d spendingLimit=10000&discountPercentage=10
+      { 
+          "account" : 
+          [
+              {
+                  "id" : "q1w2e3r4"
+                  ,"companyId" : "w2e3r4t5"
+                  ,"division" : "Military"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-02-29T02:34:21.120Z"
+                  ,"dateUpdated" : "2020-02-29T03:23:12.287Z"
+              }
+          ]
+       }
+    http://localhost:8282/status/q1w2e3r4 -X PATCH -d status=active
+      { 
+          "account" : 
+          [
+              {
+                  "id" : "q1w2e3r4"
+                  ,"companyId" : "w2e3r4t5"
+                  ,"division" : "Military"
+                  ,"spendingLimit" : "10000"
+                  ,"discountPercentage" : "10"
+                  ,"status" : "active"
+                  ,"dateCreated" : "2020-02-29T02:34:21.120Z"
+                  ,"dateUpdated" : "2020-02-29T03:23:12.311Z"
+              }
+          ]
+       }
+    
