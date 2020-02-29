@@ -1,0 +1,7 @@
+http://localhost:8282/
+http://localhost:8282/list/
+http://localhost:8282/filter?status=active
+http://localhost:8282/ -X POST -d id=q1w2e3r4&status=pending&companyId=q1w2e3r4&division=Military
+http://localhost:8282/q1w2e3r4 -X PUT -d companyId=w2e3r4t5
+http://localhost:8282/limits/q1w2e3r4 -X PATCH -d spendingLimit=10000&discountPercentage=10
+http://localhost:8282/status/q1w2e3r4 -X PATCH -d status=active

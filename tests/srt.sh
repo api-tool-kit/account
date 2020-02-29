@@ -20,19 +20,29 @@ echo "================================"
 date
 
 #######################################
-# load array
-declare -a req
-req[0]="curl http://localhost:8181/" 
-req[1]="curl http://localhost:8181/list/"
-req[2]="curl http://localhost:8181/filter?status=active"
-req[3]="curl http://localhost:8181/ \
-  -X POST -d id=q1w2e3r4&status=pending&email=test@example.org"
-req[4]="curl http://localhost:8181/q1w2e3r4 \
-  -X PUT -d givenName=Mike&familyName=Mork&telephone=123-456-7890"
-req[5]="curl http://localhost:8181/status/q1w2e3r4 \
-  -X PATCH -d status=active"
-req[6]="curl http://localhost:8181/q1w2e3r4 \
-  -X DELETE"
+# manage input file
+infile=""
+outfile=""
+
+if [ -z "$1" ]
+then
+  infile="srt-list.txt"
+else
+  infile="$1"
+fi
+
+if [ ! -z "$2" ]
+then
+  outfile="$2"
+fi
+
+if [ -f "$outfile" ]
+then
+  rm $outfile
+fi
+
+echo
+echo "reading input file: $infile..."
 
 #######################################
 # start target service
@@ -50,12 +60,24 @@ sleep 5
 # run requests
 echo 
 echo start request run...
-for i in "${req[@]}" 
+while IFS= read -r line
 do 
   echo
-  echo "$i" 
-  $i
-done
+  echo "$line"
+  if [ -z "$outfile" ]
+  then
+    curl $line
+  else
+    echo "$line" >> $outfile
+    curl --silent --show-error --fail $line >> $outfile
+  fi
+done < $infile  
+
+#######################################
+# all done
+echo 
+echo "job completed."
+echo
 
 #######################################
 # EOF
