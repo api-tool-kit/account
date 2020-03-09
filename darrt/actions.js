@@ -153,7 +153,6 @@ module.exports.status = function(req,res) {
   });
 }
 
-/*
 module.exports.remove = function(req,res) {
   return new Promise(function(resolve,reject){
     if(req.params.id && req.params.id!==null) {
@@ -166,5 +165,4 @@ module.exports.remove = function(req,res) {
     }
   });
 }
-*/
 

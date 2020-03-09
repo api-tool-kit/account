@@ -157,6 +157,22 @@ router.patch('/limits/:id', function(req,res){
   respond(args);
 });
 
+// remove account
+router.delete('/:id', function(req,res){
+  var args = {};
+  args.request = req;
+  args.response = res;
+  args.action = actions.remove;
+  args.type = "account";
+  args.config = {
+    metadata:metadata,
+    templates:templates,
+    forms:forms,
+    filter:"list"
+  }
+  respond(args);
+});
+
 /***********************************************************************/
 
 // initialize module
