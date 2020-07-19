@@ -15,13 +15,15 @@ var textCsv = require('./representors/text-csv');
 exports.urlencoded = true;
 
 // return supported response bodies
+// selected via http "accept" header
+// defaults to the first in the list
 exports.getTemplates = function() {
   var list = [];
   
-  list.push(pragJson.template);
   list.push(linksJson.template);
   list.push(appJson.template);
   list.push(formsJson.template);
+  list.push(pragJson.template);
   list.push(textCsv.template);
 
   return list;  
