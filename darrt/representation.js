@@ -18,10 +18,10 @@ exports.urlencoded = true;
 exports.getTemplates = function() {
   var list = [];
   
+  list.push(linksJson.template);
   list.push(appJson.template);
   list.push(formsJson.template);
   list.push(textCsv.template);
-  list.push(linksJson.template);
   list.push(pragJson.template);
 
   return list;  
