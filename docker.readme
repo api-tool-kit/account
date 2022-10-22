@@ -1,0 +1,19 @@
+# Docker
+
+## Running locally with Docker (Advanced)
+- Install Docker https://docs.docker.com/get-docker/
+- From a terminal navigate to this directory
+- Run the command `npm run start:docker`
+- Open another terminal window/tab and test that everything works using the command `curl http://0.0.0.0:8282` 
+- To exit the running service navigate back to the tab in which you started it and press ctrl+c
+
+## Developing locally with Docker
+If you wish to experiment with the code of a service run the command `npm run start:docker:watch`. This command
+will rebuild and restart the server every time you save a change to the service's code.
+
+## Troubleshooting
+Docker should just work but if there are any issues that first port of call is to "turn it off and back on again":
+- Stop all running containers/services `docker stop $(docker ps -a -q)`
+- Remove all containers/services `docker rm $(docker ps -a -q)`
+- Remove all created images `docker rmi $(docker images -aq)`
+- Start the service again `npm run start:docker`

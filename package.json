@@ -1,4 +1,4 @@
-{  
+{
   "name": "account",
   "version": "1.0.0",
   "description": "Account service for BigCo, Inc.",
@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
+    "start:docker": "docker build -t maapi-account . && docker run -p 8282:8282 maapi-account",
+    "start:docker:watch": "docker build -t maapi-account . && docker run -p 8282:8282 -v \"${PWD}:/usr/app\" -v \"/usr/app/node_modules\" maapi-account npm run dev",
     "dev": "nodemon index"
   },
   "repository": {
@@ -28,6 +30,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nodemon": "^2.0.20"
   }
 }
