@@ -18,5 +18,7 @@ app.options('*',cors());
 // point to exposed resources for this API
 app.use('/',resources); 
 
+console.log('MOOOOO');
+
 // start listening for requests
 app.listen(port, () => console.log(`listening on port ${port}!`));
